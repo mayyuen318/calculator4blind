@@ -1,0 +1,68 @@
+#JSGF V1.0;
+
+grammar equation;
+
+public <equation> = <numberEq> equals
+                    |<trigonometry> <number> [degree] equals
+                    | <number> to power <number> equals
+                    | log <number> equals
+                    | square root <number> equals
+                    | cube root <number> equals;
+
+
+<numberEq> = <number> (<op> <number>)+;
+<number> = [negative | minus] (<digit>+ | <double_unit> | <mUnit>) [point <digit>+];
+<double_unit> = <dbDigit> [<digit>];
+<mUnit> = ((<double_unit> | <digit>) <mDigit>+ [and])+ [<double_unit> | <digit>+];
+
+<digit> =   oh    |
+            zero  |
+            one   |
+            two   |
+            three |
+            four  |
+            five  |
+            six   |
+            seven |
+            eight |
+            nine  |
+            ten   |
+            eleven|
+            twelve|
+            thirteen|
+            fourteen|
+            fifteen|
+            sixteen|
+            seventeen|
+            eighteen|
+            nineteen;
+
+<dbDigit> = twenty|
+            thirty|
+            forty|
+            fifty|
+            sixty|
+            seventy|
+            ninety;
+
+<mDigit> =  hundred|
+            hundreds|
+            thousand|
+            thousands|
+            million|
+            millions;
+
+<op> =      plus    |
+            minus   |
+            times   |
+            divide  ;
+
+<trigonometry> =    sin |
+                    cos |
+                    tan |
+                    arc sin |
+                    arc cos |
+                    arc tan ;
+
+
+
